@@ -10,13 +10,16 @@ import { UnidadeCurricularService } from 'src/app/services/unidade-curricular.se
 import { EncontrosComponent } from '../encontros/encontros.component';
 import { Encontro } from 'src/app/models/Encontro';
 import { SituacaoAprendizagem } from 'src/app/models/SituacaoAprendizagem';
-
+import { UsuarioCalendarioAcademicoComponent } from '../../Dashboard/usuario-dashboard/usuario-calendario-academico/usuario-calendario-academico/usuario-calendario-academico.component';
 @Component({
   selector: 'app-atividades',
   templateUrl: './atividades.component.html',
   styleUrls: ['./atividades.component.css']
 })
+
+
 export class AtividadesComponent implements OnInit {
+  
 
   idEstudanteUsuarioLogado : number;
   unidadesCurriculares: UnidadeCurricular[];
@@ -33,6 +36,7 @@ export class AtividadesComponent implements OnInit {
     private situacaoAprendizagemService: SituacaoAprendizagemService,
     private planejamentoUC: PlanejamentoUcService,
     private encontroService: EncontroService,
+    
   ) { }
 
   ngOnInit(): void {
