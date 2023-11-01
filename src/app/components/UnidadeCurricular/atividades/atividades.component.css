@@ -1,15 +1,10 @@
 .card-ativ {
-
-  width: 300px; 
-  height: 200px; 
+  width: 300px;
+  height: 200px;
   margin: 10px;
-  border-radius: 200px;
-  }
-
-.custom-font {
-  font-size: 24px; 
-  color: 0F2552;
-
 }
 
-  
+.custom-font {
+  font-size: 24px;
+  color: 0F2552;
+}
