@@ -14,16 +14,25 @@ import { FuncoesService } from '../app/services/funcoes.service';
 import { OfertasService } from './services/ofertas.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
-import { ListagemCursosComponent, DialogExclusaoCursosComponent } from './components/Curso/listagem-cursos/listagem-cursos.component';
+import {
+  ListagemCursosComponent,
+  DialogExclusaoCursosComponent,
+} from './components/Curso/listagem-cursos/listagem-cursos.component';
 import { NovoCursoComponent } from './components/Curso/novo-curso/novo-curso.component';
 import { AtualizarCursoComponent } from './components/Curso/atualizar-curso/atualizar-curso.component';
 
-import { ListagemFuncoesComponent, DialogExclusaoFuncoesComponente } from './components/Funcao/listagem-funcoes/listagem-funcoes.component';
+import {
+  ListagemFuncoesComponent,
+  DialogExclusaoFuncoesComponente,
+} from './components/Funcao/listagem-funcoes/listagem-funcoes.component';
 import { NovaFuncaoComponent } from './components/Funcao/nova-funcao/nova-funcao.component';
 import { AtualizarFuncaoComponent } from './components/Funcao/atualizar-funcao/atualizar-funcao.component';
 
 import { NovaOfertaComponent } from './components/Oferta/nova-oferta/nova-oferta.component';
-import { ListagemOfertasComponent, DialogExclusaoOfertasComponent } from './components/Oferta/listagem-ofertas/listagem-ofertas.component';
+import {
+  ListagemOfertasComponent,
+  DialogExclusaoOfertasComponent,
+} from './components/Oferta/listagem-ofertas/listagem-ofertas.component';
 import { AtualizarOfertaComponent } from './components/Oferta/atualizar-oferta/atualizar-oferta.component';
 
 import { RegistrarUsuarioComponent } from './components/Usuario/Registro/registrar-usuario/registrar-usuario.component';
@@ -43,9 +52,15 @@ import { UsuarioRecursosComponent } from './components/Dashboard/usuario-dashboa
 import { UnidadeCurricularDescricaoComponent } from './components/UnidadeCurricular/descricao/unidade-curricular-descricao.component';
 
 import { EstudoPrevioComponent } from './components/UnidadeCurricular/estudo-previo/estudo-previo.component';
-import { DialogIndicadoresComponent, EncontrosComponent } from './components/UnidadeCurricular/encontros/encontros.component';
+import {
+  DialogIndicadoresComponent,
+  EncontrosComponent,
+} from './components/UnidadeCurricular/encontros/encontros.component';
 
-import { ListagemBadgesComponent, DialogExclusaoBadgeComponent } from './components/Badge/listagem-badge/listagem-badges.component';
+import {
+  ListagemBadgesComponent,
+  DialogExclusaoBadgeComponent,
+} from './components/Badge/listagem-badge/listagem-badges.component';
 import { NovoBadgeComponent } from './components/Badge/novo-badge/novo-badge.component';
 import { AtualizarBadgeComponent } from './components/Badge/atualizar-badge/atualizar-badge.component';
 
@@ -113,9 +128,8 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { DashboardComponent } from './components/Dashboard/dashboard/dashboard.component';
 import { HeaderComponent } from './components/Dashboard/header/header.component';
 
-
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 //PrimeNG Imports
@@ -149,17 +163,16 @@ import { ListboxModule } from 'primeng/listbox';
 import { SidebarModule } from 'primeng/sidebar';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
-import { InputMaskModule } from "primeng/inputmask";
+import { InputMaskModule } from 'primeng/inputmask';
 import { EditorModule } from 'primeng/editor';
 import { DropdownModule } from 'primeng/dropdown';
 
 //Ngx Imports
 import { DragScrollModule } from 'ngx-drag-scroll';
 
-export function PegarTokenUsuario(){
-  return localStorage.getItem("TokenUsuarioLogado");
+export function PegarTokenUsuario() {
+  return localStorage.getItem('TokenUsuarioLogado');
 }
-
 
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
@@ -187,7 +200,7 @@ import { ForumUcComponent } from './components/Dashboard/usuario-dashboard/usuar
 import { CardTopicoComunidadeComponent } from './components/ApoioDuvidas/card-topico-comunidade/card-topico-comunidade.component';
 import { RecursoDocViewerComponent } from './components/Dashboard/usuario-dashboard/usuario-recursos/meus-recursos/recurso-doc-viewer/recurso-doc-viewer.component';
 import { AtividadesProfessorComponent } from './components/UnidadeCurricular/atividades-professor/atividades-professor.component';
-
+import { AdicionarAtividadesComponent } from './components/UnidadeCurricular/adicionar-atividades/adicionar-atividades.component';
 registerLocaleData(localePT);
 registerLocaleData(localeES);
 registerLocaleData(localeDE);
@@ -269,7 +282,8 @@ registerLocaleData(localeFR);
     ForumUcComponent,
     CardTopicoComunidadeComponent,
     RecursoDocViewerComponent,
-    AtividadesProfessorComponent
+    AtividadesProfessorComponent,
+    AdicionarAtividadesComponent,
   ],
   imports: [
     BrowserModule,
@@ -303,11 +317,11 @@ registerLocaleData(localeFR);
     DropdownModule,
     NgxMaskModule.forRoot(),
     JwtModule.forRoot({
-      config:{
+      config: {
         tokenGetter: PegarTokenUsuario,
         allowedDomains: ['localhost:5099'],
-        disallowedRoutes: []
-      }
+        disallowedRoutes: [],
+      },
     }),
     MatSidenavModule,
     MatListModule,
@@ -353,10 +367,9 @@ registerLocaleData(localeFR);
     OfertasService,
     AuthGuardService,
     HttpClientModule,
-    {provide:LocationStrategy, useClass:HashLocationStrategy},
-    {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

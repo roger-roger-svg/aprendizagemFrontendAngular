@@ -10,18 +10,13 @@ import { UnidadeCurricularService } from 'src/app/services/unidade-curricular.se
 import { EncontrosComponent } from '../encontros/encontros.component';
 import { Encontro } from 'src/app/models/Encontro';
 import { SituacaoAprendizagem } from 'src/app/models/SituacaoAprendizagem';
-import { UsuarioCalendarioAcademicoComponent } from '../../Dashboard/usuario-dashboard/usuario-calendario-academico/usuario-calendario-academico/usuario-calendario-academico.component';
 @Component({
   selector: 'app-atividades',
   templateUrl: './atividades.component.html',
-  styleUrls: ['./atividades.component.css']
+  styleUrls: ['./atividades.component.css'],
 })
-
-
 export class AtividadesComponent implements OnInit {
-  
-
-  idEstudanteUsuarioLogado : number;
+  idEstudanteUsuarioLogado: number;
   unidadesCurriculares: UnidadeCurricular[];
   moduloId: number = 0;
   atividades: Atividade[];
@@ -35,12 +30,12 @@ export class AtividadesComponent implements OnInit {
     private atividadeService: AtividadeService,
     private situacaoAprendizagemService: SituacaoAprendizagemService,
     private planejamentoUC: PlanejamentoUcService,
-    private encontroService: EncontroService,
-    
-  ) { }
+    private encontroService: EncontroService
+  ) {}
 
   ngOnInit(): void {
-    this.idEstudanteUsuarioLogado = this.authGuardService.getIdEstudanteUsuarioLogado();
+    this.idEstudanteUsuarioLogado =
+      this.authGuardService.getIdEstudanteUsuarioLogado();
     this.obterUnidadesCurriculares();
     this.obterAtividades();
     this.obterEncontros();
@@ -48,24 +43,28 @@ export class AtividadesComponent implements OnInit {
   }
 
   obterUnidadesCurriculares = () => {
-    this.unidadeCurricularService.ObterUnidadeCurricularPeloModuloId(this.idEstudanteUsuarioLogado).subscribe((resultado) => {
-      this.unidadesCurriculares = resultado;
-      console.log(this.unidadesCurriculares);
-    })
-  }
+    this.unidadeCurricularService
+      .ObterUnidadeCurricularPeloModuloId(this.idEstudanteUsuarioLogado)
+      .subscribe((resultado) => {
+        this.unidadesCurriculares = resultado;
+        console.log(this.unidadesCurriculares);
+      });
+  };
 
   obterAtividades = () => {
-    this.atividadeService.ObterAtividadesRecentesPeloUsuarioId("1").subscribe((resultado) => {
-      this.atividades = resultado;
-      console.log(this.atividades);
-    })
-  }
+    this.atividadeService
+      .ObterAtividadesRecentesPeloUsuarioId('1')
+      .subscribe((resultado) => {
+        this.atividades = resultado;
+        console.log(this.atividades);
+      });
+  };
 
-  obterEncontros(){
+  obterEncontros() {
     this.encontroService.ObterEncontros().subscribe((resultado) => {
       this.encontros = resultado;
-      console.log(this.encontros)
-    })
+      console.log(this.encontros);
+    });
   }
 
   // obterSituacoesAprendizagem = () => {
@@ -89,5 +88,4 @@ export class AtividadesComponent implements OnInit {
   //     this.loading = false;
   //   });
   // }
-
 }

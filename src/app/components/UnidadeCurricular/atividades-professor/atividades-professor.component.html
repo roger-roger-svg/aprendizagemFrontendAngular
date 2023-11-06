@@ -1,1 +1,52 @@
-<p>atividades-professor works!</p>
+<!-- <p-editor [(ngModel)]="text" [style]="{ height: '320px' }"></p-editor> -->
+<div class="line"></div>
+<h1 class="title">ATIVIDADES</h1>
+<div class="line"></div>
+<div class="container">
+  <div class="activity-form">
+    <div class="custom-card" style="min-height: 230px; margin: 20px">
+      <div
+        class="shadow p-3 mb-5 bg-body rounded-xxl custom-card-content"
+        style="height: 50%; border-radius: 30px"
+      >
+        <span
+          class="badge rounded-pill"
+          style="
+            color: #fff;
+            background-color: #0a0897;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 16px;
+            margin-left: 10px;
+          "
+        >
+          Ocultar para estudantes
+        </span>
+        <div
+          class="Adicionar-Tarefa"
+          style="padding: 50px; margin-left: -40px; display: flex"
+        >
+          <b [routerLink]="['/adicionar-atividades']">
+            <i
+              class="pi pi-plus"
+              style="color: green; margin-right: 10px; font-size: 1.5rem"
+            ></i>
+            <i class="pi pi-file-edit" style="font-size: 1.5rem"></i> Adicionar
+            Tarefa
+          </b>
+          <span
+            class="editar"
+            style="
+              font-size: 1rem;
+              color: rgb(27, 17, 219);
+              margin-left: 150px;
+              justify-content: space-between;
+            "
+          >
+            editar <i class="pi pi-pencil" style="font-size: 0.8rem"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

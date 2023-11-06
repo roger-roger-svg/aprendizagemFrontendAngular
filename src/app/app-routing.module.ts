@@ -6,7 +6,7 @@ import { UsuarioTrilhaCursoComponent } from './components/Dashboard/usuario-dash
 import { UnidadeCurricularDescricaoComponent } from './components/UnidadeCurricular/descricao/unidade-curricular-descricao.component';
 import { UsuarioSenacCoinComponent } from './components/Dashboard/usuario-dashboard/usuario-senac-coin/usuario-senac-coin.component';
 import { UsuarioConceitosFeedbacksComponent } from './components/Dashboard/usuario-dashboard/usuario-conceitos-feedbacks/usuario-conceitos-feedbacks.component';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AtualizarCursoComponent } from './components/Curso/atualizar-curso/atualizar-curso.component';
 import { ListagemCursosComponent } from './components/Curso/listagem-cursos/listagem-cursos.component';
@@ -45,152 +45,203 @@ import { TarefasUcComponent } from './components/Dashboard/usuario-dashboard/usu
 import { ConceitosUcComponent } from './components/Dashboard/usuario-dashboard/usuario-unidade-curricular/conceitos-uc/conceitos-uc.component';
 import { ForumUcComponent } from './components/Dashboard/usuario-dashboard/usuario-unidade-curricular/forum-uc/forum-uc.component';
 import { ParticipantesUcComponent } from './components/Dashboard/usuario-dashboard/usuario-unidade-curricular/participantes-uc/participantes-uc.component';
-
+import { AtividadesProfessorComponent } from './components/UnidadeCurricular/atividades-professor/atividades-professor.component';
+import { AdicionarAtividadesComponent } from './components/UnidadeCurricular/adicionar-atividades/adicionar-atividades.component';
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     canActivate: [AuthGuardService],
-    children:[
+    children: [
       {
         path: 'grupo/:id',
         component: UsuarioUnidadeCurricularComponent,
         children: [
-          { path: "", redirectTo:"aulas", pathMatch: "full" },
+          { path: '', redirectTo: 'aulas', pathMatch: 'full' },
           {
-            path: 'aulas', component: ConteudoUcComponent
+            path: 'aulas',
+            component: ConteudoUcComponent,
           },
           {
-            path: 'tarefas', component: TarefasUcComponent
+            path: 'tarefas',
+            component: TarefasUcComponent,
           },
           {
-            path: 'conceitos', component: ConceitosUcComponent
+            path: 'conceitos',
+            component: ConceitosUcComponent,
           },
           {
-            path: 'forum', component: ForumUcComponent
+            path: 'forum',
+            component: ForumUcComponent,
           },
           {
-            path: 'participantes', component: ParticipantesUcComponent
-          }
+            path: 'participantes',
+            component: ParticipantesUcComponent,
+          },
         ],
       },
       {
-        path: 'unidadeCurricular/encontros/:id', component: EncontrosComponent
+        path: 'unidadeCurricular/encontros/:id',
+        component: EncontrosComponent,
       },
       {
-        path: 'unidadeCurricular/estudoprevio', component: EstudoPrevioComponent
+        path: 'unidadeCurricular/estudoprevio',
+        component: EstudoPrevioComponent,
       },
       {
-        path: 'recurso/usuariorecursos', component: UsuarioRecursosComponent
+        path: 'recurso/usuariorecursos',
+        component: UsuarioRecursosComponent,
       },
       {
-        path: 'chapter/listar', component: ChapterListagemGeralComponent
+        path: 'chapter/listar',
+        component: ChapterListagemGeralComponent,
       },
       {
-        path: 'timeline/detalhe/:id', component: TimelineDetalhesComponent
+        path: 'timeline/detalhe/:id',
+        component: TimelineDetalhesComponent,
       },
       {
-        path: 'unidadeCurricular/timelinelista', component: TimelineListaComponent
+        path: 'unidadeCurricular/timelinelista',
+        component: TimelineListaComponent,
       },
       {
-        path: 'unidadeCurricular/descricao/:id', component: UnidadeCurricularDescricaoComponent
+        path: 'unidadeCurricular/descricao/:id',
+        component: UnidadeCurricularDescricaoComponent,
       },
       {
-        path: 'senacCoin/usuariosenaccoin', component: UsuarioSenacCoinComponent
+        path: 'senacCoin/usuariosenaccoin',
+        component: UsuarioSenacCoinComponent,
       },
       {
-        path: 'conceitos/usuarioconceitos', component: UsuarioConceitosFeedbacksComponent
+        path: 'conceitos/usuarioconceitos',
+        component: UsuarioConceitosFeedbacksComponent,
       },
       {
-        path: 'dashboard/usuariodashboard', component: UsuarioDashboardComponent
+        path: 'dashboard/usuariodashboard',
+        component: UsuarioDashboardComponent,
       },
       {
-        path: 'dashboard/administradordashboard', component: AdministradorDashboardComponent
+        path: 'dashboard/administradordashboard',
+        component: AdministradorDashboardComponent,
       },
       {
-        path: 'badges/listagembadges', component: ListagemBadgesComponent
+        path: 'badges/listagembadges',
+        component: ListagemBadgesComponent,
       },
       {
-        path: 'badges/novobadge', component: NovoBadgeComponent
+        path: 'badges/novobadge',
+        component: NovoBadgeComponent,
       },
       {
-        path: 'badges/atualizarbadge/:id', component: AtualizarBadgeComponent
+        path: 'badges/atualizarbadge/:id',
+        component: AtualizarBadgeComponent,
       },
       {
-        path: 'cursos/listagemcursos', component: ListagemCursosComponent
+        path: 'cursos/listagemcursos',
+        component: ListagemCursosComponent,
       },
       {
-        path: 'cursos/novocurso', component: NovoCursoComponent
+        path: 'cursos/novocurso',
+        component: NovoCursoComponent,
       },
       {
-        path: 'cursos/atualizarcurso/:id', component: AtualizarCursoComponent
+        path: 'cursos/atualizarcurso/:id',
+        component: AtualizarCursoComponent,
       },
       {
-        path: 'curso/usuariotrilhacurso', component: UsuarioTrilhaCursoComponent
+        path: 'curso/usuariotrilhacurso',
+        component: UsuarioTrilhaCursoComponent,
       },
       {
-        path: 'funcoes/listagemfuncoes', component: ListagemFuncoesComponent
+        path: 'funcoes/listagemfuncoes',
+        component: ListagemFuncoesComponent,
       },
       {
-        path: 'funcoes/novafuncao', component: NovaFuncaoComponent
+        path: 'funcoes/novafuncao',
+        component: NovaFuncaoComponent,
       },
       {
-        path: 'funcoes/atualizarfuncao/:id', component: AtualizarFuncaoComponent
+        path: 'funcoes/atualizarfuncao/:id',
+        component: AtualizarFuncaoComponent,
       },
       {
-        path: 'ofertas/listagemofertas', component: ListagemOfertasComponent
+        path: 'ofertas/listagemofertas',
+        component: ListagemOfertasComponent,
       },
       {
-        path: 'ofertas/novaoferta', component: NovaOfertaComponent
+        path: 'ofertas/novaoferta',
+        component: NovaOfertaComponent,
       },
       {
-        path: 'ofertas/atualizaroferta/:id', component: AtualizarOfertaComponent
+        path: 'ofertas/atualizaroferta/:id',
+        component: AtualizarOfertaComponent,
       },
       {
-        path: 'badges/listagemusuariobadges', component: ListagemUsuarioBadgesComponent
+        path: 'badges/listagemusuariobadges',
+        component: ListagemUsuarioBadgesComponent,
       },
       {
-        path: 'unidadeCurricular/objetosaprendizagem', component: ListaObjetosAprendizagem
+        path: 'unidadeCurricular/objetosaprendizagem',
+        component: ListaObjetosAprendizagem,
       },
       {
-        path: 'comunidade/comentario/:id', component: ComentarioComponent
+        path: 'comunidade/comentario/:id',
+        component: ComentarioComponent,
       },
       {
-        path: 'comunidade/novapergunta', component: NovaPerguntaComponent
+        path: 'comunidade/novapergunta',
+        component: NovaPerguntaComponent,
       },
       {
-        path: 'mensagens/mensagens', component: MensagensComponent
+        path: 'mensagens/mensagens',
+        component: MensagensComponent,
       },
       {
-        path: 'atividadeverificacao/:id', component: EstudoPrevioComponent
+        path: 'atividadeverificacao/:id',
+        component: EstudoPrevioComponent,
       },
       {
-        path: 'atividades', component: AtividadesComponent
+        path: 'atividades',
+        component: AtividadesComponent,
       },
       {
-        path: 'comunidade', component: ApoioDuvidasComponent
+        path: 'comunidade',
+        component: ApoioDuvidasComponent,
       },
       {
-        path: 'requerimentoweb', component: UsuarioRequerimentoWebComponent
+        path: 'requerimentoweb',
+        component: UsuarioRequerimentoWebComponent,
       },
       {
-        path: 'ajuda', component: AjudaComponent
+        path: 'ajuda',
+        component: AjudaComponent,
       },
       {
-        path: 'noticias', component: UsuarioNoticiasComponent
-      }
-    ]
+        path: 'noticias',
+        component: UsuarioNoticiasComponent,
+      },
+      {
+        path: 'atividades-professor',
+        component: AtividadesProfessorComponent,
+      },
+      {
+        path: 'adicionar-atividades',
+        component: AdicionarAtividadesComponent,
+      },
+    ],
   },
   {
-    path: 'usuarios/registrarusuario', component: RegistrarUsuarioComponent
+    path: 'usuarios/registrarusuario',
+    component: RegistrarUsuarioComponent,
   },
   {
-    path: 'usuarios/loginusuario', component: LoginUsuarioComponent
-  }
+    path: 'usuarios/loginusuario',
+    component: LoginUsuarioComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
