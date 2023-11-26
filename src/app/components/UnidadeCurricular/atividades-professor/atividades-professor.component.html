@@ -1,37 +1,69 @@
-<!-- <p-editor [(ngModel)]="text" [style]="{ height: '320px' }"></p-editor> -->
-<div class="line"></div>
-<h1 class="title">ATIVIDADES</h1>
-<div class="line"></div>
-<div class="container">
-  <div
-    class="custom-card"
-    style="min-height: 260px; margin: 20px; padding: 20px"
-  >
-    <div
-      class="shadow p-3 mb-5 bg-body rounded-xxl custom-card-content"
-      style="height: 50%; width: 100 rem; border-radius: 30px"
-    >
-      <span
-        class="badge rounded-pill"
-        style="color: #fff; background-color: #0a0897; font-size: 1.2rem"
-      >
-        Ocultar para estudantes
-      </span>
-      <div class="Adicionar-Tarefa" style="padding-top: 14px">
-        <b [routerLink]="['/adicionar-atividades']">
-          <i
-            class="pi pi-plus"
-            style="color: green; margin-right: 10px; font-size: 1.5rem"
-          ></i>
-          <i class="pi pi-file-edit" style="font-size: 1.5rem"></i> Adicionar
-          Tarefa
-        </b>
-        <span
-          class="editar"
-          style="font-size: 1rem; color: rgb(27, 17, 219); margin-left: 160px"
+<div class="row">
+  <div class="header">
+    <i class="pi pi-chevron-left"></i>
+    <span class="atividades-text">Atividades</span>
+  </div>
+  <div class="titulo-container">
+    <h2>Guia de Atividades</h2>
+    <p class="subtitulo">Gerencie as atividades curriculares dos Alunos</p>
+  </div>
+  <div class="container">
+    <div class="Guia">
+      <div class="calendario-container">
+        <div class="calendario">
+          <p class="calendario-frase">Calendário do Semestre</p>
+          <app-usuario-calendario-academico></app-usuario-calendario-academico>
+        </div>
+      </div>
+      <div class="custom-card" style="min-height: 160px; margin: 20px">
+        <div
+          class="shadow p-3 mb-5 bg-body rounded-xxl custom-card-content"
+          style="height: 50%; border-radius: 30px"
         >
-          editar <i class="pi pi-pencil" style="font-size: 0.8rem"></i>
-        </span>
+          <div
+            class="Adicionar-Tarefa"
+            style="padding: 10px; margin-top: 4px; margin-left: -10"
+          >
+            <b [routerLink]="['/adicionar-atividades']">
+              <i
+                class="pi pi-plus"
+                style="
+                  color: rgb(0, 11, 128);
+                  margin-right: 10px;
+                  font-size: 1.5rem;
+                "
+              ></i>
+
+              <i class="pi pi-file-edit" style="font-size: 1.5rem"></i>
+              Adicionar atividade
+            </b>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="item" *ngFor="let item of menuItems">
+          <i class="{{ item.icon }} orange-icon"></i>
+          <span>{{ item.label }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="atividades-container">
+      <div style="width: 50%">
+        <app-usuario-proximas-atividades></app-usuario-proximas-atividades>
+      </div>
+      <div class="ativ-pen">
+        <p-panel
+          [style]="{
+            width: '50%',
+            'margin-left': '13px',
+            'box-shadow': '8px 3px 22px 10px rgba(150, 150, 150, 0.11)'
+          }"
+          styleClass="no-border"
+        >
+          <ng-template pTemplate="header">
+            <b>Atividades pendentes</b>
+          </ng-template>
+        </p-panel>
       </div>
     </div>
   </div>
